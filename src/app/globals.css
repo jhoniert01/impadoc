@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   IMPADOC — Brand System 2026 · CSS Foundations
+   ═══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* ── Brand primary (Brand System 04) ── */
+    --rojo-cal:   #E32118;   /* Primary 01 · Cumbre · CTAs */
+    --rojo-mid:   #FF2E25;   /* Hover accent */
+    --azul-obra:  #1B2C5E;   /* Primary 02 · Estructura · Logotipo */
+    --azul-deep:  #0F1E45;   /* Headers, deeper */
+    --azul-mid:   #2F4593;   /* Mid-tone interactions */
+    --azul-light: #5A78D6;   /* Accent type emphasis */
+
+    /* ── Neutrals (Brand System 04) ── */
+    --carbon:     #15130F;   /* Text principal · fondos densos */
+    --grafito:    #2A2823;   /* Text secundario · capas profundas */
+    --concreto:   #8E867B;   /* Líneas técnicas · etiquetas */
+    --arena:      #D9CFBE;   /* Superficies cálidas · placeholders */
+    --yeso:       #EFEAE0;   /* Fondo base · papel */
+    --blanco-cal: #F8F5EE;   /* Bloques claros · tarjetas */
+
+    /* ── Editorial accents (≤10% page) ── */
+    --arcilla:    #C25B3F;   /* Acento cálido — exteriores */
+    --musgo:      #4F5A3C;   /* Acento frío — industrial */
+
+    /* ── Legacy aliases (kept for backward compatibility) ── */
+    --blue:       var(--azul-obra);
+    --blue-deep:  var(--azul-deep);
+    --blue-mid:   var(--azul-mid);
+    --blue-light: var(--azul-light);
+    --red:        var(--rojo-cal);
+    --red-mid:    var(--rojo-mid);
+    --ink:        var(--carbon);
+    --ink-2:      var(--grafito);
+    --muted:      #6a7484;
+    --line:       #E5E1D6;
+    --paper:      var(--yeso);
+    --paper-2:    #E7E1D2;
+    --white:      var(--blanco-cal);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: var(--yeso);
+    color: var(--carbon);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-feature-settings: "ss01", "ss02", "cv01";
+  }
+
+  /* ── Display typography uses Space Grotesk per Brand System 05 ── */
+  h1, h2, .display, .h-display {
+    font-family: 'Space Grotesk', 'Manrope', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    color: var(--azul-obra);
+  }
+  h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Manrope', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--azul-obra);
+  }
+
+  p { line-height: 1.6; color: var(--grafito); }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; background: none; border: 0; cursor: pointer; }
+  input, select, textarea { font-family: inherit; }
+
+  ::selection { background: var(--rojo-cal); color: #fff; }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--yeso); }
+  ::-webkit-scrollbar-thumb { background: var(--concreto); border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--azul-obra); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Utilities
+   ═══════════════════════════════════════════════════════════ */
+@layer utilities {
+  .mono {
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    letter-spacing: 0.04em;
+  }
+
+  .font-display {
+    font-family: 'Space Grotesk', 'Manrope', system-ui, sans-serif;
+  }
+  .font-sans-body {
+    font-family: 'Manrope', system-ui, sans-serif;
+  }
+
+  /* ── Eyebrow label — technical, monospaced ── */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--carbon);
+    font-weight: 500;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--rojo-cal);
+    flex-shrink: 0;
+  }
+  .eyebrow.light { color: rgba(255,255,255,0.72); }
+  .eyebrow.light::before { background: var(--rojo-cal); }
+
+  /* ── Patterns from Brand System 06 ── */
+  .grid-tex {
+    background-image:
+      linear-gradient(rgba(21,19,15,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(21,19,15,.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .grid-tex-dark {
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .grid-tex-fine {
+    background-image:
+      linear-gradient(rgba(21,19,15,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(21,19,15,.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ── Diagonal pattern (Cumbre) from Brand System 06 ── */
+  .diag-pattern {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--azul-obra) 0,
+      var(--azul-obra) 12px,
+      var(--rojo-cal) 12px,
+      var(--rojo-cal) 24px
+    );
+  }
+
+  /* ── Card hover ── */
+  .card-lift {
+    transition:
+      transform 0.36s cubic-bezier(.2,.7,.2,1),
+      box-shadow 0.36s cubic-bezier(.2,.7,.2,1),
+      border-color 0.36s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(15,30,69,.14);
+  }
+
+  /* ── Reveal animation ── */
+  .rv {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1);
+  }
+  .rv.in { opacity: 1; transform: translateY(0); }
+  .rv.d1 { transition-delay: 0.08s; }
+  .rv.d2 { transition-delay: 0.16s; }
+  .rv.d3 { transition-delay: 0.24s; }
+  .rv.d4 { transition-delay: 0.32s; }
+  .rv.d5 { transition-delay: 0.40s; }
+
+  /* ── Ticker ── */
+  .ticker-anim { animation: ticker 38s linear infinite; }
+
+  /* ── Pulse dot ── */
+  .pulse-dot { animation: pulseDot 2.4s ease infinite; }
+
+  /* ── Subtle gradient overlay for hero images ── */
+  .img-overlay {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 45%,
+      rgba(15,30,69,0.18) 75%,
+      rgba(15,30,69,0.55) 100%
+    );
+  }
+  .img-overlay-strong {
+    background: linear-gradient(
+      180deg,
+      rgba(15,30,69,0.25) 0%,
+      rgba(15,30,69,0.10) 35%,
+      rgba(15,30,69,0.65) 100%
+    );
+  }
+
+  /* ── Premium link underline ── */
+  .link-under {
+    position: relative;
+  }
+  .link-under::after {
+    content:'';
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:1.5px;
+    background: var(--rojo-cal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .link-under:hover::after { transform: scaleX(1); }
+
+  /* ── Animations for menu drawer items ── */
+  .drawer-item {
+    opacity: 0;
+    transform: translateX(28px);
+    animation: drawerIn 0.55s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+
+  /* ── Mark text marker (red underline like brand) ── */
+  .mark-red {
+    background: linear-gradient(transparent 68%, rgba(227,33,24,.22) 68%);
+    padding: 0 0.05em;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════════════════════ */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes scrollPulse {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  60%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+@keyframes pulseDot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: 0.35; transform: scale(0.75); }
+}
+@keyframes drawerIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

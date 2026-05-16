@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 130" fill="none">
+  <!-- Red mountain (smaller, left) -->
+  <path d="M30 100 L62 28 L94 100 Z" fill="#C8102E"/>
+  <!-- Red circle (sun) -->
+  <circle cx="62" cy="22" r="10" fill="#C8102E"/>
+  <!-- Blue mountain (main, larger) -->
+  <path d="M62 100 L120 18 L178 100 Z" fill="#1B3A8C"/>
+  <!-- Wordmark IMPADOC -->
+  <text x="200" y="92" font-family="Manrope, system-ui, sans-serif" font-size="76" font-weight="800" fill="#1B3A8C" letter-spacing="-2">IMPADOC</text>
+</svg>

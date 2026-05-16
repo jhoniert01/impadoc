@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 130" fill="none">
+  <path d="M30 100 L62 28 L94 100 Z" fill="#E01535"/>
+  <circle cx="62" cy="22" r="10" fill="#E01535"/>
+  <path d="M62 100 L120 18 L178 100 Z" fill="#FFFFFF"/>
+  <text x="200" y="92" font-family="Manrope, system-ui, sans-serif" font-size="76" font-weight="800" fill="#FFFFFF" letter-spacing="-2">IMPADOC</text>
+</svg>

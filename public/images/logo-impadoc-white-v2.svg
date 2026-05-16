@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" fill="none" aria-label="IMPADOC">
+  <!-- ── Mountain mark — white version for dark backgrounds ── -->
+  <g>
+    <path d="M6 64 L34 22 L40 30 L24 64 Z" fill="#FFFFFF" opacity="0.85"/>
+    <path d="M26 64 L60 14 L98 64 Z" fill="#FFFFFF"/>
+    <circle cx="56" cy="24" r="3.6" fill="#E32118"/>
+  </g>
+  <!-- ── IMPADOC wordmark — white ── -->
+  <text x="116" y="55"
+        font-family="'Space Grotesk', 'Manrope', system-ui, sans-serif"
+        font-weight="700"
+        font-size="44"
+        letter-spacing="-0.8"
+        fill="#FFFFFF">IMPADOC</text>
+</svg>

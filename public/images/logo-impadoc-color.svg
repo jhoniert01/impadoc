@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" fill="none" aria-label="IMPADOC">
+  <!-- ── Mountain mark ── -->
+  <g>
+    <!-- Small red peak (aplicador / firma) -->
+    <path d="M6 64 L34 22 L40 30 L24 64 Z" fill="#E32118"/>
+    <!-- Main blue mountain -->
+    <path d="M26 64 L60 14 L98 64 Z" fill="#1B2C5E"/>
+    <!-- White dot detail (acabado final) -->
+    <circle cx="56" cy="24" r="3.6" fill="#FFFDF8"/>
+  </g>
+  <!-- ── IMPADOC wordmark — Space Grotesk Bold 700, tracking -2% ── -->
+  <text x="116" y="55"
+        font-family="'Space Grotesk', 'Manrope', system-ui, sans-serif"
+        font-weight="700"
+        font-size="44"
+        letter-spacing="-0.8"
+        fill="#1B2C5E">IMPADOC</text>
+</svg>
