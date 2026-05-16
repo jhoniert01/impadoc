@@ -93,20 +93,17 @@ export default function Navbar() {
       .slice(0, 8);
   }, [searchQuery]);
 
-  /* ── Header surface — adapts to scroll ── */
+  /* ── Header surface — adapts to scroll
+       Uses opaque cream tones to match the official paper logo background ── */
   const headerStyle = scrolled
     ? {
-        background: "rgba(248,245,238,0.94)",
-        backdropFilter: "saturate(180%) blur(22px)",
-        WebkitBackdropFilter: "saturate(180%) blur(22px)",
+        background: "#F2EDE0",
         borderColor: "rgba(15,30,69,0.10)",
-        boxShadow: "0 8px 40px rgba(15,30,69,0.08)",
+        boxShadow: "0 8px 40px rgba(15,30,69,0.10)",
       }
     : {
-        background: "rgba(248,245,238,0.62)",
-        backdropFilter: "saturate(180%) blur(16px)",
-        WebkitBackdropFilter: "saturate(180%) blur(16px)",
-        borderColor: "rgba(15,30,69,0.05)",
+        background: "#F2EDE0",
+        borderColor: "rgba(15,30,69,0.06)",
         boxShadow: "0 2px 14px rgba(15,30,69,0.04)",
       };
 
@@ -182,12 +179,12 @@ export default function Navbar() {
                 onClick={() => setDrawerOpen(false)}
               >
                 <Image
-                  src="/images/logo-impadoc-color.svg"
+                  src="/images/logo-impadoc-paper.jpg"
                   alt="IMPADOC — Materiales que Construyen Confianza"
-                  width={210}
-                  height={48}
+                  width={280}
+                  height={70}
                   priority
-                  className={`${scrolled ? "h-9" : "h-11"} w-auto transition-all duration-300 group-hover:opacity-90`}
+                  className={`${scrolled ? "h-12" : "h-14"} w-auto transition-all duration-300 group-hover:opacity-95`}
                 />
               </Link>
 
@@ -541,11 +538,11 @@ export default function Navbar() {
               {/* Header */}
               <div className="flex items-center justify-between mb-12">
                 <Image
-                  src="/images/logo-impadoc-white-v2.svg"
+                  src="/images/logo-impadoc-azul.jpg"
                   alt="IMPADOC"
-                  width={180}
-                  height={40}
-                  className="h-9 w-auto"
+                  width={240}
+                  height={60}
+                  className="h-12 w-auto rounded-md"
                 />
                 <button
                   onClick={() => setDrawerOpen(false)}

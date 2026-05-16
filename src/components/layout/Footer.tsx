@@ -94,11 +94,12 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/images/logo-impadoc-white-v2.svg"
+              src="/images/logo-impadoc-azul.jpg"
               alt="IMPADOC — Materiales que Construyen Confianza"
-              width={200}
-              height={44}
-              className="h-10 w-auto mb-6"
+              width={260}
+              height={66}
+              className="h-13 w-auto mb-6 rounded-md"
+              style={{ height: "52px" }}
             />
             <p
               style={{
