@@ -68,21 +68,49 @@ export default function AcabadosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[calc(72px+80px)] pb-20 bg-[#15130F] relative overflow-hidden">
-        <div className="absolute inset-0 grid-texture" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_70%_50%,rgba(27,44,94,0.4),transparent)]" />
+      <section className="pt-[calc(72px+80px)] pb-20 relative overflow-hidden" style={{ background:"#15130F" }}>
+        {/* Background image — interior stuco texture */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/fachada-impatextura.jpg"
+            alt="Acabado de estuco interior"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Dark overlay for legibility */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(95deg, rgba(15,19,15,0.92) 0%, rgba(15,19,15,0.78) 40%, rgba(15,19,15,0.50) 75%, rgba(15,19,15,0.25) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="absolute inset-0 grid-texture opacity-25" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 70% at 75% 50%, rgba(227,33,24,0.18), transparent 70%)",
+          }}
+        />
+
         <div className="relative z-10 max-w-[1280px] mx-auto px-12">
           <Eyebrow light>Líneas de Producto</Eyebrow>
           <h1 className="font-display text-[clamp(36px,6vw,76px)] font-extrabold leading-[1.04] tracking-[-0.03em] text-white max-w-[700px] mb-6">
-            Sistemas de acabados<br /><span className="text-[#5C8FE8]">para cada superficie</span>
+            Sistemas de acabados<br /><span style={{ color:"#E32118" }}>para cada superficie</span>
           </h1>
-          <p className="text-lg font-light text-white/55 max-w-[480px] leading-relaxed mb-10">
+          <p className="text-lg font-light text-white/75 max-w-[520px] leading-relaxed mb-10">
             5 líneas de productos certificados ICONTEC, desarrollados para los requerimientos reales de la construcción en Colombia.
           </p>
           <div className="flex flex-wrap gap-3">
             {lines.map((l) => (
               <a key={l.id} href={`#${l.id}`}
-                className="px-4 py-2 rounded-full text-sm font-medium border border-white/15 text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                className="px-4 py-2 rounded-full text-sm font-semibold border border-white/25 text-white/85 backdrop-blur hover:bg-white/15 hover:border-white/50 hover:text-white transition-all"
+                style={{ background:"rgba(255,255,255,0.05)" }}>
                 {l.title.split(" ").slice(-1)[0] === "Pisos" ? "Pisos" : l.title.replace("Acabados para ", "").replace("Sistema ", "").replace("Instalación de ", "")}
               </a>
             ))}

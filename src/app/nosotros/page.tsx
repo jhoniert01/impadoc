@@ -40,8 +40,21 @@ export default function NosotrosPage() {
             </div>
           </div>
           <div className="relative hidden lg:block">
-            <div className="rounded-3xl overflow-hidden" style={{ aspectRatio:"4/3", boxShadow:"0 20px 60px rgba(0,0,0,0.4)" }}>
+            <div
+              className="relative rounded-3xl overflow-hidden"
+              style={{ aspectRatio:"4/3", boxShadow:"0 20px 60px rgba(0,0,0,0.4)" }}
+            >
               <Image src="/images/planta-aerea.jpg" alt="Planta IMPADOC Cali" fill className="object-cover" />
+              <div className="absolute inset-0" style={{ background:"linear-gradient(180deg, transparent 50%, rgba(15,19,15,.45) 100%)" }} />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background:"rgba(248,245,238,.94)", backdropFilter:"blur(10px)" }}>
+                <div className="w-10 h-10 rounded-lg bg-[#1B2C5E] flex items-center justify-center text-white">
+                  <Building size={16} />
+                </div>
+                <div>
+                  <p className="mono text-[9.5px] tracking-[0.14em] uppercase text-[#8E867B]">PLANTA PRINCIPAL</p>
+                  <p style={{ fontSize:"14px", fontWeight:700, color:"#1B2C5E", letterSpacing:"-0.015em" }}>Cali · Valle del Cauca</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -88,8 +101,18 @@ export default function NosotrosPage() {
 
           {/* Right — team photo + stats */}
           <div>
-            <div className="rounded-3xl overflow-hidden mb-6" style={{ aspectRatio:"4/3", boxShadow:"0 12px 40px rgba(13,20,32,.12)" }}>
+            <div
+              className="relative rounded-3xl overflow-hidden mb-6"
+              style={{ aspectRatio:"4/3", boxShadow:"0 20px 60px -10px rgba(15,30,69,.18)" }}
+            >
               <Image src="/images/equipo.png" alt="Equipo IMPADOC" fill className="object-cover object-top" />
+              <div className="absolute inset-0" style={{ background:"linear-gradient(180deg, transparent 55%, rgba(15,19,15,.55) 100%)" }} />
+              <div className="absolute bottom-5 left-5 right-5">
+                <p className="mono text-[10px] tracking-[0.16em] uppercase text-white/75 mb-1">NUESTRO EQUIPO</p>
+                <p style={{ fontSize:"17px", fontWeight:700, color:"#fff", letterSpacing:"-0.02em" }}>
+                  200+ colaboradores comprometidos
+                </p>
+              </div>
             </div>
             <div className="space-y-3">
               {[

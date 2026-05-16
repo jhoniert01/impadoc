@@ -216,90 +216,6 @@ export default function Navbar() {
                         {item.label}
                       </Link>
                     )}
-
-                    {/* Mega panel */}
-                    {item.hasMega && item.mega && megaOpen === item.label && (
-                      <div
-                        className="fixed left-0 right-0 top-[100%] anim-megapanel"
-                        style={{ paddingTop: 0 }}
-                        onMouseEnter={cancelMegaClose}
-                        onMouseLeave={scheduleMegaClose}
-                      >
-                        {/* Invisible bridge — covers the gap between button and panel */}
-                        <div className="absolute -top-3 left-0 right-0 h-3" />
-                        <div className="max-w-[1320px] mx-auto px-6">
-                          <div
-                            className="rounded-b-3xl overflow-hidden"
-                            style={{
-                              background: "rgba(248,245,238,0.99)",
-                              backdropFilter: "blur(24px)",
-                              boxShadow: "0 32px 80px rgba(15,30,69,.18)",
-                              border: "1px solid #E5E1D6",
-                              borderTop: "none",
-                            }}
-                          >
-                            <div className="grid grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 p-10">
-                              {/* Featured */}
-                              <div
-                                className="rounded-2xl p-8 flex flex-col justify-end min-h-[260px] relative overflow-hidden"
-                                style={{ background: "linear-gradient(135deg, #0F1E45 0%, #1B2C5E 100%)" }}
-                              >
-                                <div
-                                  className="absolute inset-0 opacity-30"
-                                  style={{
-                                    backgroundImage:
-                                      "linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px)",
-                                    backgroundSize: "32px 32px",
-                                  }}
-                                />
-                                <div
-                                  className="absolute -top-12 -right-12 w-44 h-44 rounded-full opacity-25"
-                                  style={{ background: "radial-gradient(circle, #E32118, transparent 70%)" }}
-                                />
-                                <div className="relative z-10">
-                                  <p className="mono text-[10px] tracking-[0.16em] uppercase text-white/45 mb-3">
-                                    {item.mega.featured.label}
-                                  </p>
-                                  <h3 className="text-[20px] font-bold text-white leading-tight mb-5 font-display">
-                                    {item.mega.featured.title}
-                                  </h3>
-                                  <Link
-                                    href={item.mega.featured.href}
-                                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#E32118] text-white text-[12.5px] font-bold hover:bg-[#FF2E25] transition-all hover:gap-3"
-                                    onClick={() => setMegaOpen(null)}
-                                  >
-                                    Ver catálogo completo <ArrowRight size={13} />
-                                  </Link>
-                                </div>
-                              </div>
-
-                              {/* Columns */}
-                              {item.mega.cols.map(col => (
-                                <div key={col.title}>
-                                  <h4 className="mono text-[10.5px] tracking-[0.14em] uppercase text-[#8E867B] mb-4 pb-3 border-b border-[#E5E1D6]">
-                                    {col.title}
-                                  </h4>
-                                  <ul className="space-y-0">
-                                    {col.items.map(ci => (
-                                      <li key={ci.label}>
-                                        <Link
-                                          href={ci.href}
-                                          onClick={() => setMegaOpen(null)}
-                                          className="flex items-center gap-2 text-[13.5px] font-medium text-[#15130F] hover:text-[#1B2C5E] py-2 transition-colors group"
-                                        >
-                                          <span className="text-[#E32118] opacity-0 group-hover:opacity-100 transition-opacity text-[10px]">▸</span>
-                                          <span className="group-hover:translate-x-1 transition-transform">{ci.label}</span>
-                                        </Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
                   </li>
                 ))}
               </ul>
@@ -359,6 +275,95 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        {/* ════════════════════════════════════════════
+            MEGA PANEL — extracted outside <li> so the
+            full-width fixed positioning works correctly
+            ════════════════════════════════════════════ */}
+        {NAV_ITEMS.map(item => {
+          if (!item.hasMega || !item.mega || megaOpen !== item.label) return null;
+          return (
+            <div
+              key={`mega-${item.label}`}
+              className="absolute left-0 right-0 anim-megapanel z-40"
+              style={{ top: "100%" }}
+              onMouseEnter={cancelMegaClose}
+              onMouseLeave={scheduleMegaClose}
+            >
+              {/* Invisible bridge to cover any gap */}
+              <div className="absolute -top-2 left-0 right-0 h-2" />
+              <div className="max-w-[1440px] mx-auto px-5 lg:px-8">
+                <div
+                  className="rounded-b-3xl overflow-hidden"
+                  style={{
+                    background: "#F8F5EE",
+                    boxShadow: "0 32px 80px rgba(15,30,69,.22)",
+                    border: "1px solid #E5E1D6",
+                    borderTop: "none",
+                  }}
+                >
+                  <div className="grid grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 p-10">
+                    {/* Featured */}
+                    <div
+                      className="rounded-2xl p-8 flex flex-col justify-end min-h-[260px] relative overflow-hidden"
+                      style={{ background: "linear-gradient(135deg, #0F1E45 0%, #1B2C5E 100%)" }}
+                    >
+                      <div
+                        className="absolute inset-0 opacity-30"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px)",
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                      <div
+                        className="absolute -top-12 -right-12 w-44 h-44 rounded-full opacity-25"
+                        style={{ background: "radial-gradient(circle, #E32118, transparent 70%)" }}
+                      />
+                      <div className="relative z-10">
+                        <p className="mono text-[10px] tracking-[0.16em] uppercase text-white/45 mb-3">
+                          {item.mega.featured.label}
+                        </p>
+                        <h3 className="text-[20px] font-bold text-white leading-tight mb-5 font-display">
+                          {item.mega.featured.title}
+                        </h3>
+                        <Link
+                          href={item.mega.featured.href}
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#E32118] text-white text-[12.5px] font-bold hover:bg-[#FF2E25] transition-all hover:gap-3"
+                          onClick={() => setMegaOpen(null)}
+                        >
+                          Ver catálogo completo <ArrowRight size={13} />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Columns */}
+                    {item.mega.cols.map(col => (
+                      <div key={col.title}>
+                        <h4 className="mono text-[10.5px] tracking-[0.14em] uppercase text-[#8E867B] mb-4 pb-3 border-b border-[#E5E1D6]">
+                          {col.title}
+                        </h4>
+                        <ul className="space-y-0">
+                          {col.items.map(ci => (
+                            <li key={ci.label}>
+                              <Link
+                                href={ci.href}
+                                onClick={() => setMegaOpen(null)}
+                                className="flex items-center gap-2 text-[13.5px] font-medium text-[#15130F] hover:text-[#1B2C5E] py-2 transition-colors group"
+                              >
+                                <span className="text-[#E32118] opacity-0 group-hover:opacity-100 transition-opacity text-[10px]">▸</span>
+                                <span className="group-hover:translate-x-1 transition-transform">{ci.label}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </header>
 
       {/* ════════════════════════════════════════════
