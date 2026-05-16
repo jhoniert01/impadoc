@@ -148,8 +148,8 @@ export default function NosotrosPage() {
               Nuestros productos cumplen con las normas técnicas más exigentes del sector de la construcción en Colombia.
             </p>
             <div className="flex items-center gap-6 mb-10">
-              <Image src="/images/icontec.png" alt="ICONTEC" width={80} height={80} className="h-20 w-auto" />
-              <Image src="/images/sello-55.png" alt="55 años" width={110} height={56} className="h-14 w-auto" />
+              <Image src="/images/icontec.jpg" alt="ICONTEC" width={80} height={80} className="h-20 w-auto" />
+              <Image src="/images/sello-55.jpg" alt="55 años" width={110} height={56} className="h-14 w-auto" />
             </div>
             <div className="space-y-3">
               {["NTC 2775 — Estucos y masillas para construcción","NTC 4076 — Morteros para mampostería","Sistema de Gestión de Calidad"].map(c => (

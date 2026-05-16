@@ -22,6 +22,26 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen]   = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const megaCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  /* ── Mega menu hover handlers with delay ── */
+  const openMega = (label: string) => {
+    if (megaCloseTimer.current) {
+      clearTimeout(megaCloseTimer.current);
+      megaCloseTimer.current = null;
+    }
+    setMegaOpen(label);
+  };
+  const scheduleMegaClose = () => {
+    if (megaCloseTimer.current) clearTimeout(megaCloseTimer.current);
+    megaCloseTimer.current = setTimeout(() => setMegaOpen(null), 220);
+  };
+  const cancelMegaClose = () => {
+    if (megaCloseTimer.current) {
+      clearTimeout(megaCloseTimer.current);
+      megaCloseTimer.current = null;
+    }
+  };
 
   /* ── Scroll detection ── */
   useEffect(() => {
@@ -177,8 +197,8 @@ export default function Navbar() {
                   <li
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => item.hasMega && setMegaOpen(item.label)}
-                    onMouseLeave={() => setMegaOpen(null)}
+                    onMouseEnter={() => item.hasMega && openMega(item.label)}
+                    onMouseLeave={() => item.hasMega && scheduleMegaClose()}
                   >
                     {item.hasMega ? (
                       <button
@@ -203,10 +223,13 @@ export default function Navbar() {
                     {/* Mega panel */}
                     {item.hasMega && item.mega && megaOpen === item.label && (
                       <div
-                        className="fixed left-0 right-0 top-[calc(100%+0px)] mt-0 anim-megapanel"
-                        onMouseEnter={() => setMegaOpen(item.label)}
-                        onMouseLeave={() => setMegaOpen(null)}
+                        className="fixed left-0 right-0 top-[100%] anim-megapanel"
+                        style={{ paddingTop: 0 }}
+                        onMouseEnter={cancelMegaClose}
+                        onMouseLeave={scheduleMegaClose}
                       >
+                        {/* Invisible bridge — covers the gap between button and panel */}
+                        <div className="absolute -top-3 left-0 right-0 h-3" />
                         <div className="max-w-[1320px] mx-auto px-6">
                           <div
                             className="rounded-b-3xl overflow-hidden"
@@ -441,7 +464,7 @@ export default function Navbar() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-[13.5px] font-bold text-[#15130F] truncate group-hover:text-[#1B2C5E]">
-                              IMPADOC {p.name}
+                              {p.name}
                             </p>
                             <p className="mono text-[10px] tracking-[0.08em] uppercase text-[#8E867B] truncate">
                               {p.line}

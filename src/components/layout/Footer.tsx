@@ -134,9 +134,9 @@ export default function Footer() {
               className="flex items-center gap-3 p-3 rounded-xl mb-6"
               style={{ background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.08)" }}
             >
-              <Image src="/images/icontec.png" alt="ICONTEC" width={56} height={56} className="h-12 w-auto" />
+              <Image src="/images/icontec.jpg" alt="ICONTEC" width={56} height={56} className="h-12 w-auto" />
               <div className="w-px h-10 bg-white/10" />
-              <Image src="/images/sello-55.png" alt="58 años" width={88} height={44} className="h-11 w-auto" />
+              <Image src="/images/sello-55.jpg" alt="58 años" width={88} height={44} className="h-11 w-auto" />
             </div>
 
             <div className="flex items-center gap-2 foot-social">

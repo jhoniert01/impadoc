@@ -255,7 +255,7 @@ function ProductsContent() {
                         letterSpacing: "-0.02em",
                       }}
                     >
-                      IMPADOC {p.name}
+                      {p.name}
                     </h3>
                   </Link>
                   <p

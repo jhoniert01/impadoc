@@ -117,7 +117,7 @@ export default function HomePage() {
             <span>CALI · COL — ICONTEC NTC 2775</span>
           </div>
 
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-end">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-end">
             {/* Left: Title + CTAs */}
             <div className="pb-8 lg:pb-16">
               <h1
@@ -207,18 +207,19 @@ export default function HomePage() {
               <div
                 className="relative w-full rounded-[28px] overflow-hidden"
                 style={{
-                  aspectRatio: "4/5",
+                  aspectRatio: "3/4",
+                  minHeight: "560px",
                   background: "#E7E1D2",
-                  boxShadow: "0 30px 80px -10px rgba(15,30,69,.25), 0 12px 30px -4px rgba(15,30,69,.18)",
+                  boxShadow: "0 40px 100px -10px rgba(15,30,69,.28), 0 16px 40px -6px rgba(15,30,69,.18)",
                 }}
               >
                 <Image
-                  src="/images/arch-facade-1.png"
+                  src="/images/fachada-impatextura.jpg"
                   alt="Fachada arquitectónica con sistema IMPADOC"
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                 />
                 <div className="absolute inset-0 img-overlay pointer-events-none" />
 
@@ -571,7 +572,7 @@ export default function HomePage() {
                         letterSpacing: "-0.02em",
                       }}
                     >
-                      IMPADOC {p.name}
+                      {p.name}
                     </h3>
                   </Link>
                   <p
@@ -808,8 +809,8 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { img: "/images/icontec.png",  t: "ICONTEC 2025",      s: "Norma técnica NTC 2775" },
-              { img: "/images/sello-55.png", t: "58+ años",          s: "Empresa colombiana 1968" },
+              { img: "/images/icontec.jpg",  t: "ICONTEC 2025",      s: "Norma técnica NTC 2775" },
+              { img: "/images/sello-55.jpg", t: "58+ años",          s: "Empresa colombiana 1968" },
             ].map((c, i) => (
               <div
                 key={i}

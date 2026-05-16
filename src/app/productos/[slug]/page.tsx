@@ -63,7 +63,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
             <h1
               className="font-display"
               style={{
-                fontSize: "clamp(34px,4.5vw,60px)",
+                fontSize: "clamp(36px,5vw,68px)",
                 fontWeight: 700,
                 letterSpacing: "-0.035em",
                 lineHeight: 1.02,
@@ -71,10 +71,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                 marginBottom: "20px",
               }}
             >
-              IMPADOC<br />
-              <em style={{ fontStyle: "italic", fontWeight: 600, color: "#E32118" }}>
-                {product.name}
-              </em>
+              {product.name}
             </h1>
             <p style={{ fontSize: "17px", color: "#2A2823", lineHeight: 1.65, marginBottom: "32px" }}>
               {product.description}
@@ -272,7 +269,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                         letterSpacing: "-0.02em",
                       }}
                     >
-                      IMPADOC {r.name}
+                      {r.name}
                     </h3>
                     <p
                       style={{ fontSize: "12.5px", color: "#8E867B", lineHeight: 1.55 }}
